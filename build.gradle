@@ -50,6 +50,17 @@ dependencies {
 
 
     //  ==================================================
+    //                     AWS SDK
+    //  ==================================================
+
+    // AWS SDK를 사용하기 전, 전체적인 버전 관리를 위해 BOM(Build Of Material)을 추가합니다.
+    // 해당 프로젝트는 AWS SDK 1.12.529 버전의 BOM을 사용하기에, 다른 AWS 의존성 또한 해당 버전으로 고정됩니다.
+    implementation platform('com.amazonaws:aws-java-sdk-bom:1.12.529')
+    // AWS S3을 사용하기 위해 S3 의존성을 추가합니다.
+    implementation('com.amazonaws:aws-java-sdk-s3')
+
+
+    //  ==================================================
     //                     Others
     //  ==================================================
 
@@ -63,4 +74,7 @@ dependencies {
     // lombok은 생성자 자동 생성 및 게터 / 세터 자동 생성을 위한 프레임워크입니다.
     compileOnly 'org.projectlombok:lombok:1.18.24'
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
+
+    implementation 'javax.xml.bind:jaxb-api:2.3.1' // 사용 가능한 최신 버전 사용
+
 }
